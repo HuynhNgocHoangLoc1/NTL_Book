@@ -1,13 +1,15 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NTL_Book.Areas.Identity.Data;
+using NTL_Book.Models;
+
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("NTL_BookDbContextConnection") ?? throw new InvalidOperationException("Connection string 'NTL_BookDbContextConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("LocConnectionSql") ?? throw new InvalidOperationException("Connection string 'NTL_BookDbContextConnection' not found.");
 
 builder.Services.AddDbContext<NTL_BookDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<NTL_BookUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<NTL_BookDbContext>();
 
 // Add services to the container.

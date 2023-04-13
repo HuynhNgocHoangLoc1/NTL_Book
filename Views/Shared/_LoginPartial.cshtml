@@ -1,8 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using NTL_Book.Areas.Identity.Data
 
-@inject SignInManager<NTL_BookUser> SignInManager
-@inject UserManager<NTL_BookUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
