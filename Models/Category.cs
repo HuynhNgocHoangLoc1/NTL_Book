@@ -1,14 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AppDev.Models
+namespace NTL_Book.Models;
+
+public class Category
 {
-    public class Category
-    {
-        public int Id { get; set; }
+    public int Id { get; set; }
 
-        [StringLength(255)]
-        public string Name { get; set; } = null!;
+    [StringLength(255)]
+    public string Name { get; set; } = null!;
 
-        public List<Book> Books { get; set; } = new List<Book>();
-    }
+    public List<Book> Books { get; set; } = new List<Book>();
 }

@@ -1,9 +1,8 @@
-namespace AppDev.Models
-{
-    public class ErrorViewModel
-    {
-        public string? RequestId { get; set; }
+﻿namespace NTL_Book.Models;
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-    }
+public class ErrorViewModel
+{
+    public string? RequestId { get; set; }
+
+    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 }

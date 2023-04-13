@@ -1,31 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
-namespace AppDev.Models
+namespace NTL_Book.Models;
+
+public class Book
 {
-    public class Book
-    {
-        public int Id { get; set; }
+    public int Id { get; set; }
 
-        [StringLength(255)]
-        public string Title { get; set; } = null!;
+    [StringLength(255)]
+    public string Title { get; set; } = null!;
 
-        public int CategoryId { get; set; }
+    public int CategoryId { get; set; }
 
-        [ValidateNever]
-        public Category Category { get; set; } = null!;
+    [ValidateNever]
+    public Category Category { get; set; } = null!;
 
-        [Range(0, double.MaxValue, ErrorMessage = "Price must be bigger than zero.")]
-        [DataType(DataType.Currency)]
-        public double Price { get; set; }
+    [Range(0, double.MaxValue, ErrorMessage = "Price must be bigger than zero.")]
+    [DataType(DataType.Currency)]
+    public double Price { get; set; }
 
-        public string StoreId { get; set; } = null!;
+    public string StoreId { get; set; } = null!;
 
-        [ValidateNever]
-        public Store Store { get; set; } = null!;
+    [ValidateNever]
+    public Store Store { get; set; } = null!;
 
-        public int? ImageId { get; set; }
+    public int? ImageId { get; set; }
 
-        public Image? Image { get; set; } = null!;
-    }
+    public Image? Image { get; set; } = null!;
+
 }

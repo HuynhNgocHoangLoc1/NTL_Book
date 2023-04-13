@@ -18,4 +18,8 @@
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Book\Index.cshtml" />
+    </ItemGroup>
+
 </Project>
