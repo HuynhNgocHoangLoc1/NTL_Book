@@ -11,7 +11,7 @@ public class CheckoutViewModel
 
     [Display(Name = "Shipping Address")]
     [StringLength(255)]
-    public string Address { get; set; } = null!;
+    public string HomeAddress { get; set; } = null!;
 
     [Display(Name = "Full Name")]
     [StringLength(50)]
@@ -21,4 +21,5 @@ public class CheckoutViewModel
     [StringLength(20)]
     [DataType(DataType.PhoneNumber)]
     public string PhoneNumber { get; set; } = null!;
+  
 }

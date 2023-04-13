@@ -4,7 +4,7 @@
 
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace AppDev.Areas.Identity.Pages.Account.Manage
+namespace NTL_Book.Areas.Identity.Pages.Account.Manage
 {
     /// <summary>
     ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used

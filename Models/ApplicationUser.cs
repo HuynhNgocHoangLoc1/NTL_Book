@@ -7,11 +7,11 @@ namespace NTL_Book.Models;
 public class ApplicationUser : IdentityUser
 {
     [StringLength(50)]
-    public string FullName { get; set; } = null!;
+    public string FullName { get; set; } =null!;
 
     [StringLength(100)]
-    public string HomeAddress { get; set; } = null!;
+    public string HomeAddress { get; set; }=null!;
     [StringLength(100)]
-    public string PhoneNumber { get; set; } = null!;
+    public override string? PhoneNumber { get; set; }=null!;
 }
 

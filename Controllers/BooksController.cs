@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NTL_Book.Areas.Identity.Data;
+using NTL_Book.Data;
+using NTL_Book.Data;
 using NTL_Book.ViewModels;
 
 namespace NTL_Book.Controllers;

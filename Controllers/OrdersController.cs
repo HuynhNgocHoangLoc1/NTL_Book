@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NTL_Book.Areas.Identity.Data;
+using NTL_Book.Data;
+using NTL_Book.Data;
 using NTL_Book.Helpers;
 using NTL_Book.Models;
 

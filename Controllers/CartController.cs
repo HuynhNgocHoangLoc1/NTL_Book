@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NTL_Book.Areas.Identity.Data;
+using NTL_Book.Data;
 using NTL_Book.Models;
 using NTL_Book.ViewModels;
 
@@ -101,7 +101,7 @@ namespace NTL_Book.Controllers
             {
                 Orders = orders,
                 Name = customer.FullName,
-                Address = customer.HomeAddress,
+                HomeAddress = customer.HomeAddress,
                 PhoneNumber = customer.PhoneNumber,
             };
 
@@ -146,7 +146,7 @@ namespace NTL_Book.Controllers
             orders = items.GroupBy(ci => ci.Book.StoreId, (storeId, items) => new Order(customer.Id, storeId, items)
             {
                 FullName = model.Name,
-                Address = model.Address,
+                Address = model.HomeAddress,
                 PhoneNumber = model.PhoneNumber,
             })
                 .ToList();

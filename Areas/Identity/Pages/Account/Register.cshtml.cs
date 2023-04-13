@@ -16,14 +16,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using NTL_Book.Areas.Identity.Data;
+using NTL_Book.Data;
 using NTL_Book.Models;
 
 namespace NTL_Book.Areas.Identity.Pages.Account
 {
-    public class RegisterModel : PageModel
+     public class RegisterModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -99,8 +100,28 @@ namespace NTL_Book.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name = "Full Name")]
+            public string FullName { get; set; }
+
+            [Required]
+            [Display(Name = "Home Address")]
+            public string HomeAddress { get; set; }
+            [Required]
+            [DataType(DataType.PhoneNumber)]
+            [Display(Name = "Phone Number")]
+            public string PhoneNumber { get; set; }
+
+            [Required]
+            public string Role { get; set; }
         }
 
+        public List<SelectListItem> Roles { get; } = new()
+        {
+            new("Customer", Helpers.Roles.User),
+            new("Store Owner", Helpers.Roles.StoreOwner),
+        };
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -118,11 +139,17 @@ namespace NTL_Book.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                user.FullName = Input.FullName;
+                user.HomeAddress = Input.HomeAddress;
+                user.PhoneNumber = Input.PhoneNumber;
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    await _userManager.AddToRoleAsync(user, Input.Role);
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -180,3 +207,4 @@ namespace NTL_Book.Areas.Identity.Pages.Account
         }
     }
 }
+
