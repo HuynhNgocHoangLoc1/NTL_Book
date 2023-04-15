@@ -10,7 +10,7 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.16" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.15" />
-      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.15" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.16" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.15" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15">
         <PrivateAssets>all</PrivateAssets>
@@ -22,10 +22,36 @@
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Views\Book\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\View\Accounts\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\View\Accounts\ResetPassword.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\View\Accounts\Users.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\View\RequestCategories\Approve.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\View\RequestCategories\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\View\RequestCategories\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\View\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\View\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\Books\Creates.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\Books\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\Books\Detail.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\Books\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\Books\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\Orders\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\Orders\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\RequestCategories\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\RequestCategories\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\RequestCategories\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\RequestCategories\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\StoreOwner\View\RequestCategories\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="wwwroot\img\books" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Areas\Admin\Pages\RequestCategories\Approve.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Pages\RequestCategories\Details.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Pages\RequestCategories\Index.cshtml" />
     </ItemGroup>
 
 </Project>

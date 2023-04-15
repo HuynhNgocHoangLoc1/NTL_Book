@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using NTL_Book.Helpers
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +27,43 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
+                     @if (User.IsInRole(Roles.StoreOwner))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Store" asp-action="Index">Store</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Books" asp-action="Index">Store Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Orders" asp-action="IndexBookOrders">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="RequestCategories" asp-action="IndexRequest">Requests New Category</a>
+                        </li>
+                    }
+                    @if (User.IsInRole(Roles.Admin))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="RequestCategories" asp-action="IndexRequest">Requests New Category</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Accounts" asp-action="Index">Accounts</a>
+                        </li>
+                    }
+                    @if (User.IsInRole(Roles.User))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="IndexBookOrders">Orders</a>
+                        </li>
+                    }
                 </ul>
+                @if (User.Identity?.IsAuthenticated is false or null || User.IsInRole(Roles.User))
+                {
+                    <div class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
+                    </div>
+                }
             </div>
                 <partial name="_LoginPartial" />
         </div>

@@ -1,0 +1,6 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model NTL_Book.ViewModels.SearchViewModel
+<form method="get" action="@Model?.Action">
+    <input asp-for="Type" type="hidden" />
+    <input asp-for="KeyWord" class="form-control" placeholder="Searching..." />
+</form>
